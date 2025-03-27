@@ -1,5 +1,10 @@
 @echo off
-
+REM git clone https://github.com/microsoft/vcpkg
+REM cd vcpkg
+REM  .\bootstrap-vcpkg.bat
+REM copy vcpkg.exe C:\Windows\System32\vcpkg.exe
+REM cd ..
+REM pip install numpy scipy --upgrade
 if not exist "C:\opencv" mkdir "C:\opencv"
 if not exist "C:\opencv\build" mkdir "C:\opencv\build"
 
@@ -11,17 +16,17 @@ echo.
 REM This is why there is no progress bar:
 REM https://github.com/PowerShell/PowerShell/issues/2138
 
-echo Downloading: opencv-4.11.0.zip [91MB]
+REM  echo Downloading: opencv-4.11.0.zip [91MB]
 REM powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://github.com/opencv/opencv/archive/4.11.0.zip -OutFile c:\opencv\opencv-4.11.0.zip"
 echo Extracting...
-powershell -command "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv-4.11.0.zip -DestinationPath c:\opencv"
+REM powershell -command "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv-4.11.0.zip -DestinationPath c:\opencv"
 REM del c:\opencv\opencv-4.11.0.zip /q
 echo.
 
-echo Downloading: opencv_contrib-4.11.0.zip [58MB]
+REM echo Downloading: opencv_contrib-4.11.0.zip [58MB]
 REM powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://github.com/opencv/opencv_contrib/archive/4.11.0.zip -OutFile c:\opencv\opencv_contrib-4.11.0.zip"
 echo Extracting...
-powershell -command "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv_contrib-4.11.0.zip -DestinationPath c:\opencv"
+REM powershell -ommand "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv_contrib-4.11.0.zip -DestinationPath c:\opencv"
 REM del c:\opencv\opencv_contrib-4.11.0.zip /q
 echo.
 
