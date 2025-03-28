@@ -8,10 +8,10 @@ REM pip install numpy scipy --upgrade
 if not exist "C:\opencv" mkdir "C:\opencv"
 if not exist "C:\opencv\build" mkdir "C:\opencv\build"
 
-echo Downloading OpenCV sources
-echo.
-echo For monitoring the download progress please check the C:\opencv directory.
-echo.
+REM echo Downloading OpenCV sources
+REM echo.
+REM echo For monitoring the download progress please check the C:\opencv directory.
+REM echo.
 
 REM This is why there is no progress bar:
 REM https://github.com/PowerShell/PowerShell/issues/2138
@@ -19,19 +19,19 @@ REM https://github.com/PowerShell/PowerShell/issues/2138
 REM  echo Downloading: opencv-4.11.0.zip [91MB]
 REM powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://github.com/opencv/opencv/archive/4.11.0.zip -OutFile c:\opencv\opencv-4.11.0.zip"
 echo Extracting...
-REM powershell -command "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv-4.11.0.zip -DestinationPath c:\opencv"
+powershell -command "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv-4.11.0.zip -DestinationPath c:\opencv"
 REM del c:\opencv\opencv-4.11.0.zip /q
-echo.
+REM echo.
 
 REM echo Downloading: opencv_contrib-4.11.0.zip [58MB]
 REM powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://github.com/opencv/opencv_contrib/archive/4.11.0.zip -OutFile c:\opencv\opencv_contrib-4.11.0.zip"
 echo Extracting...
-REM powershell -ommand "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv_contrib-4.11.0.zip -DestinationPath c:\opencv"
+powershell -ommand "$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path c:\opencv\opencv_contrib-4.11.0.zip -DestinationPath c:\opencv"
 REM del c:\opencv\opencv_contrib-4.11.0.zip /q
-echo.
+REM echo.
 
-echo Done with downloading and extracting sources.
-echo.
+REM echo Done with downloading and extracting sources.
+REM echo.
 
 @echo on
 
