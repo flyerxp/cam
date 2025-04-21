@@ -67,8 +67,8 @@ func main() {
 		}
 
 		// 色彩量化，提高级别以保留更多颜色细节
-		quantized, err := colorQuantization(bilateralFiltered, 32)
-		if err != nil {
+		quantized, err2 := colorQuantization(bilateralFiltered, 32)
+		if err2 != nil {
 			fmt.Printf("Error in color quantization: %v\n", err)
 			continue
 		}
@@ -77,7 +77,7 @@ func main() {
 		// 边缘检测，降低阈值以保留更多边缘信息
 		edges := gocv.NewMat()
 		defer edges.Close()
-		if err := gocv.Canny(gray, &edges, 80, 180); err != nil {
+		if err = gocv.Canny(gray, &edges, 80, 180); err != nil {
 			fmt.Printf("Error applying Canny edge detection: %v\n", err)
 			continue
 		}
